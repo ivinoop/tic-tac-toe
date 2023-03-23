@@ -1,0 +1,260 @@
+/* Resets */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* General */
+
+:root {
+  --hue: 10;
+  --bg: var(--hue) 40% 98%;
+  --text: var(--hue) 80% 20%;
+  --accent: var(--hue) 60% 50%;
+}
+
+html {
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  place-items: center;
+  place-content: center;
+  min-height: 100vh;
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jsb {
+  justify-content: space-between;
+}
+
+.jse {
+  justify-content: space-evenly;
+}
+
+.aic {
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+.tac {
+  text-align: center;
+}
+
+/* Custom Style */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: hsl(var(--accent));
+  color: hsl(var(--bg));
+  padding: 0.5rem 1.5rem;
+  border-radius: 100vmax;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 600px;
+  max-width: 90vw;
+  aspect-ratio: 1/1;
+}
+
+.tile {
+  color: hsl(var(--hue) 60% 50%);
+  border: 2px solid hsl(var(--text));
+  background-color: hsl(var(--bg));
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: clamp(1rem, calc(10vw + 0.5rem), 10rem);
+  aspect-ratio: 1/1;
+}
+
+.tile:focus {
+  border-color: hsl(var(--hue) 60% 50%);
+  outline: 3px solid hsl(var(--hue) 60% 50%);
+}
+.tile[data-value] {
+  cursor: not-allowed;
+}
+
+.tile[data-hover]::before {
+  content: attr(data-hover);
+  opacity: 0.5;
+}
+.tile[data-value]::before {
+  content: attr(data-value);
+  opacity: 1;
+}
